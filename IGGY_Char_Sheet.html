@@ -1,0 +1,1731 @@
+<div class="sheet-IGGY">
+    <div class="sheet-main">
+        <div class="sheet-main-header">
+            <div class="sheet-character_name">
+                <input type="text" name="attr_character_name" title="@{character_name}">
+            </div>
+            <div class="sheet-character_details">
+                <div class="sheet-form">
+                    <div class="sheet-group sheet-detail-path">
+                        <label>Mortal Path & Level</label>
+                        <input type="text" name="attr_path_display" title="@{path_display}">
+                    </div>
+                    <div class="sheet-group sheet-detail-dao">
+                        <label>Cultivator Dao</label>
+                        <input type="text" name="attr_dao_display" title="@{dao_display}">
+                    </div>
+                    <div class="sheet-group sheet-detail-realm">
+                        <label>Realm</label>
+                        <input type="text" name="attr_realm_display" title="@{realm_display}">
+                    </div>
+                    <div class="sheet-group sheet-detail-background">
+                        <label>Background</label>
+                        <input type="text" name="attr_background" title="@{background}">
+                    </div>
+                    <div class="sheet-group sheet-detail-ancestry">
+                        <label>Ancestry</label>
+                        <input type="text" name="attr_ancestry_display" title="@{ancestry_display}">
+                    </div>
+                    <div class="sheet-group sheet-detail-reputation">
+                        <label>Reputation</label>
+                        <input type="text" name="attr_reputation" title="@{reputation}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-main-body">
+            <div class="sheet-tabs">
+                <div class="sheet-tab sheet-tab-character">
+                    <input type="radio" name="attr_tab" value="character" checked="checked">
+                    <span class="sheet-tab-label">Character</span>
+                    <div class="sheet-tab-content">
+                        <div class="sheet-tab-left">
+                            <div class="sheet-container-well sheet-well-combat">
+                                <div class="sheet-box sheet-box-evasion">
+                                    <div class="sheet-box-header">Evasion</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_evasion" title="@{evasion}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-damage">
+                                    <div class="sheet-box-header">Damage Reduction</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_dr" title="@{dr}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-defence">
+                                    <div class="sheet-box-header">Defence</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_defence" title="@{defence}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-max">
+                                    <div class="sheet-box-header">Max HP</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_hp_max" title="@{hp_max}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-hp">
+                                    <div class="sheet-box-header">HP</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_hp" title="@{hp}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-regen">
+                                    <div class="sheet-box-header">Regen</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_regen" title="@{regen}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-movement">
+                                    <div class="sheet-box-header">Movement</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_movement" title="@{movement}">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-initiative">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_initiative" value="&{template:simple} {{rname=Initiative}} {{r1=[[@{agility}d6[INIT]]]}} {{charname=@{character_name}}}" class="btn ui-draggable">Initiative</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <span name="attr_agility" title="@{initiative}">0</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-box-hitdie">
+                                    <div class="sheet-box-header">Hit Die</div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_hit_die" title="@{hit_die}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-container-well sheet-well-attacks">
+                                <div class="sheet-container-panel sheet-attacks">
+                                    <div class="sheet-panel-header">Attacks & Techniques</div>
+                                    <div class="sheet-panel-body">
+                                        <fieldset class="repeating_attack">
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Edit Attack</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <label>Name:</label>
+                                                                <input type="text" name="attr_atkname">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_atkflag" value="{{attack=1}}" checked="checked">
+                                                                    <span>Attack:</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <select name="attr_atkattr_base">
+                                                                    <option value="@{power}" selected="selected">PWR</option>
+                                                                    <option value="@{agility}">AGI</option>
+                                                                    <option value="@{vitality}">VIT</option>
+                                                                    <option value="@{qicontrol}">QICON</option>
+                                                                    <option value="@{mental}">MTL</option>
+                                                                    <option value="0">-</option>
+                                                                </select>
+                                                                <span>+</span>
+                                                                <input type="text" name="attr_atkmod" placeholder="0">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Range:</label>
+                                                                <input type="text" name="attr_atkrange">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" checked="checked">
+                                                                    <span>Damage 1</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Dmg</label>
+                                                                <input type="text" name="attr_dmgbase">
+                                                                <span>+</span>
+                                                                <select name="attr_dmgattr">
+                                                                    <option value="@{power}" selected="selected">PWR</option>
+                                                                    <option value="@{agility}">AGI</option>
+                                                                    <option value="@{vitality}">VIT</option>
+                                                                    <option value="@{qicontrol}">QICON</option>
+                                                                    <option value="@{mental}">MTL</option>
+                                                                    <option value="0">-</option>
+                                                                </select>
+                                                                <span>+</span>
+                                                                <label>Mod</label>
+                                                                <input type="text" name="attr_dmgmod">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_dmgtype">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}">
+                                                                    <span>Damage 2</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Dmg</label>
+                                                                <input type="text" name="attr_dmg2base">
+                                                                <span>+</span>
+                                                                <select name="attr_dmg2attr">
+                                                                    <option value="@{power}">PWR</option>
+                                                                    <option value="@{agility}">AGI</option>
+                                                                    <option value="@{vitality}">VIT</option>
+                                                                    <option value="@{qicontrol}">QICON</option>
+                                                                    <option value="@{mental}">MTL</option>
+                                                                    <option value="0" selected="selected">-</option>
+                                                                </select>
+                                                                <span>+</span>
+                                                                <label>Mod</label>
+                                                                <input type="text" name="attr_dmg2mod">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_dmg2type">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Description:</label>
+                                                                <textarea name="attr_atk_desc"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-attack">
+                                                        <input type="text" name="attr_atkbonus" class="sheet-hidden" value="">
+                                                        <input type="text" name="attr_atkdmgtype" class="sheet-hidden" value="">
+                                                        <button type="roll" name="roll_attack" value="@{rollbase}" class="sheet-attack-button">
+                                                            <span name="attr_atkname"></span>
+                                                            <span name="attr_atkbonus"></span>
+                                                            <span name="attr_atkdmgtype"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="attr_rollbase">
+                                            <input type="hidden" name="attr_rollbase_damage">
+                                            <button type="roll" name="roll_attack_damage" value="@{rollbase_damage}" class="sheet-hidden"></button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-combine-skill-resource">
+                                <div class="sheet-container-well sheet-well-resources">
+                                    <div class="sheet-container-panel sheet-resources">
+                                        <div class="sheet-panel-header">Resources</div>
+                                        <div class="sheet-panel-body">
+                                            <div class="sheet-start-resource">
+                                                <div class="sheet-resource-container">
+                                                    <div class="sheet-container-header">
+                                                        <span>Total</span>
+                                                        <input type="text" name="attr_resource_left_max" title="@{repeating_resource_left_max}">
+                                                    </div>
+                                                    <input type="number" name="attr_resource_left" title="@{repeating_resource_left}">
+                                                    <input class="label" type="text" name="attr_resource_left_name" title="@{repeating_resource_left_name}" placeholder="OTHER RESOURCE">
+                                                    <input type="hidden" name="attr_resource_left_itemid">
+                                                </div>
+                                                <div class="sheet-resource-container">
+                                                    <div class="sheet-container-header">
+                                                        <span>Total</span>
+                                                        <input type="text" name="attr_resource_right_max" title="@{repeating_resource_right_max}">
+                                                    </div>
+                                                    <input type="number" name="attr_resource_right" title="@{repeating_resource_right}">
+                                                    <input class="label" type="text" name="attr_resource_right_name" title="@{repeating_resource_right_name}" placeholder="OTHER RESOURCE">
+                                                    <input type="hidden" name="attr_resource_right_itemid">
+                                                </div>
+                                            </div>
+                                            <fieldset class="repeating_resources">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-resource-container">
+                                                        <div class="sheet-container-header">
+                                                            <span>Total</span>
+                                                            <input type="text" name="attr_resource_left_max" title="@{repeating_resource_left_max}">
+                                                        </div>
+                                                        <input type="number" name="attr_resource_left" title="@{repeating_resource_left}">
+                                                        <input class="label" type="text" name="attr_resource_left_name" title="@{repeating_resource_left_name}" placeholder="OTHER RESOURCE">
+                                                        <input type="hidden" name="attr_resource_left_itemid">
+                                                    </div>
+                                                    <div class="sheet-resource-container">
+                                                        <div class="sheet-container-header">
+                                                            <span>Total</span>
+                                                            <input type="text" name="attr_resource_right_max" title="@{repeating_resource_right_max}">
+                                                        </div>
+                                                        <input type="number" name="attr_resource_right" title="@{repeating_resource_right}">
+                                                        <input class="label" type="text" name="attr_resource_right_name" title="@{repeating_resource_right_name}" placeholder="OTHER RESOURCE">
+                                                        <input type="hidden" name="attr_resource_right_itemid">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sheet-container-well sheet-well-skills">
+                                    <div class="sheet-container-panel sheet-skills">
+                                        <div class="sheet-panel-header">Skills</div>
+                                        <div class="sheet-panel-body">
+                                            <div class="sheet-skill">
+                                                <span name="attr_acrobatics" title="@{acrobatics}">0</span>
+                                                <button type="roll" name="roll_acrobatics" value="&{template:simple} {{rname=Agility (Acrobatics)}} {{r1=[[@{agility}d6 [Acrobatics]]]}} {{charname=@{character_name}}}">Acrobatics</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_athletics" title="@{athletics}">0</span>
+                                                <button type="roll" name="roll_athletics" value="&{template:simple} {{rname=Power (Athletics)}} {{r1=[[@{power}d6 [Athletics]]]}} {{charname=@{character_name}}}">Athletics</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_charm" title="@{charm}">0</span>
+                                                <button type="roll" name="roll_charm" value="&{template:simple} {{rname=Appearance + Mental Strength (Charm)}} {{r1=[[[[@{appearance} + @{mental}]]d6 [Charm]]]}} {{charname=@{character_name}}}">Charm</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_deceit" title="@{deceit}">0</span>
+                                                <button type="roll" name="roll_deceit" value="&{template:simple} {{rname=Appearance + Mental Strength (Deceit)}} {{r1=[[[[@{appearance} + @{mental}]]d6 [Deceit]]]}} {{charname=@{character_name}}}">Deceit</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_disguise" title="@{disguise}">0</span>
+                                                <button type="roll" name="roll_disguise" value="&{template:simple} {{rname=Appearance + Mental Strength (Disguise)}} {{r1=[[[[@{appearance} + @{mental}]]d6 [Disguise]]]}} {{charname=@{character_name}}}">Disguise</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_arts" title="@{arts}">0</span>
+                                                <button type="roll" name="roll_arts" value="&{template:simple} {{rname=Agility + Mental Strength (Fine Arts)}} {{r1=[[[[round([[[[@{agility} + @{mental}]]/2]])]]d6 [Fine Arts]]]}} {{charname=@{character_name}}}">Fine Arts</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_aid" title="@{aid}">0</span>
+                                                <button type="roll" name="roll_aid" value="&{template:simple} {{rname=Vitality + Mental Strength (First Aid)}} {{r1=[[[[round([[[[@{vitality} + @{mental}]]/2]])]]d6 [First Aid]]]}} {{charname=@{character_name}}}">First Aid</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_forgery" title="@{forgery}">0</span>
+                                                <button type="roll" name="roll_forgery" value="&{template:simple} {{rname=Agility + Mental Strength (Forgery)}} {{r1=[[[[round([[[[@{agility} + @{mental}]]/2]])]]d6 [Forgery]]]}} {{charname=@{character_name}}}">Forgery</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_history" title="@{history}">0</span>
+                                                <button type="roll" name="roll_history" value="&{template:simple} {{rname=Qi Control + Mental Strength (History)}} {{r1=[[[[round([[[[@{qicontrol} + @{mental}]]/2]])]]d6 [History]]]}} {{charname=@{character_name}}}">History</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_intuition" title="@{intuition}">0</span>
+                                                <button type="roll" name="roll_intuition" value="&{template:simple} {{rname=Mental Strength (Intuition)}} {{r1=[[@{mental}d6 [Intuition]]]}} {{charname=@{character_name}}}">Intuition</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_intimidate" title="@{intimidate}">0</span>
+                                                <button type="roll" name="roll_intimidate" value="&{template:simple} {{rname=Power + Appearance (Intimidate)}} {{r1=[[[[@{power} + @{appearance}]]d6 [Intimidate]]]}} {{charname=@{character_name}}}">Intimidate</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_investigation" title="@{investigation}">0</span>
+                                                <button type="roll" name="roll_investigation" value="&{template:simple} {{rname=Mental Strength (Investigation)}} {{r1=[[@{mental}d6 [Investigation]]]}} {{charname=@{character_name}}}">Investigation</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_medicine" title="@{medicine}">0</span>
+                                                <button type="roll" name="roll_medicine" value="&{template:simple} {{rname=Qi Control + Mental Strength (Medicine)}} {{r1=[[[[round([[[[@{qicontrol} + @{mental}]]/2]])]]d6 [Medicine]]]}} {{charname=@{character_name}}}">Medicine</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_navigation" title="@{navigation}">0</span>
+                                                <button type="roll" name="roll_navigation" value="&{template:simple} {{rname=Agility + Mental Strength (Navigation)}} {{r1=[[[[round([[[[@{agility} + @{mental}]]/2]])]]d6 [Navigation]]]}} {{charname=@{character_name}}}">Navigation</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_perception" title="@{perception}">0</span>
+                                                <button type="roll" name="roll_perception" value="&{template:simple} {{rname=Mental Strength (Perception)}} {{r1=[[@{mental}d6 [Perception]]]}} {{charname=@{character_name}}}">Perception</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_performance" title="@{performance}">0</span>
+                                                <button type="roll" name="roll_performance" value="&{template:simple} {{rname=Agility + Appearance (Performance)}} {{r1=[[[[@{appearance} + @{agility}]]d6 [Performance]]]}} {{charname=@{character_name}}}">Performance</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_persuade" title="@{persuade}">0</span>
+                                                <button type="roll" name="roll_persuade" value="&{template:simple} {{rname=Appearance + Mental Strength (Persuade)}} {{r1=[[[[@{appearance} + @{mental}]]d6 [Persuade]]]}} {{charname=@{character_name}}}">Persuade</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_sleight" title="@{sleight}">0</span>
+                                                <button type="roll" name="roll_sleight" value="&{template:simple} {{rname=Agility (Sleight of Hand)}} {{r1=[[@{agility}d6 [Sleight of Hand]]]}} {{charname=@{character_name}}}">Sleight of Hand</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_stealth" title="@{stealth}">0</span>
+                                                <button type="roll" name="roll_stealth" value="&{template:simple} {{rname=Agility (Stealth)}} {{r1=[[@{agility}d6 [Stealth]]]}} {{charname=@{character_name}}}">Stealth</button>
+                                            </div>
+                                            <div class="sheet-skill">
+                                                <span name="attr_survival" title="@{survival}">0</span>
+                                                <button type="roll" name="roll_survival" value="&{template:simple} {{rname=Power + Mental Strength (Survival)}} {{r1=[[[[round([[[[@{power} + @{mental}]]/2]])]]d6 [Survival]]]}} {{charname=@{character_name}}}">Survival</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-combine-tool-mastery">
+                                <div class="sheet-container-well sheet-well-tools">
+                                    <div class="sheet-container-panel sheet-tools">
+                                        <div class="sheet-panel-header">Tools & Custom Skills</div>
+                                        <div class="sheet-panel-body">
+                                            <fieldset class="repeating_tool">
+                                                <div class="sheet-fieldset-item item-tool">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Tool</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label>Name:</label>
+                                                                    <input type="text" name="attr_toolname">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Attribute:</label>
+                                                                    <select name="attr_toolattr_base">
+                                                                        <option value="@{power}" selected="selected">PWR</option>
+                                                                        <option value="@{agility}">AGI</option>
+                                                                        <option value="@{vitality}">VIT</option>
+                                                                        <option value="@{qicontrol}">QICON</option>
+                                                                        <option value="@{mental}">MTL</option>
+                                                                    </select>
+                                                                    <label>Mods:</label>
+                                                                    <input type="text" name="attr_tool_mod" title="@{tool_mod}" value="0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-tool">
+                                                            <button type="roll" name="roll_tool" value="&{template:simple} {{rname=@{toolname}}} {{r1=[[@{toolbonus}d6]]}} {{charname=@{character_name}}}">
+                                                                <span></span>
+                                                                <span name="attr_toolbonus_display"></span>
+                                                                <input type="hidden" name="attr_toolbonus">
+                                                                <span name="attr_toolname"></span>
+                                                                <span name="attr_toolattr"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sheet-container-well sheet-well-mastery">
+                                    <div class="sheet-container-panel sheet-mastery">
+                                        <div class="sheet-panel-header">Mastery</div>
+                                        <div class="sheet-panel-body">
+                                            <fieldset class="repeating_mastery">
+                                                <div class="sheet-fieldset-item item-mastery">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Mastery</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <select name="attr_mastery_type">
+                                                                        <option value="WEAPON" selected="selected">Weapon</option>
+                                                                        <option value="TECHNIQUE">Technique</option>
+                                                                        <option value="ANCESTRAL">Ancestral</option>
+                                                                        <option value="OTHER">other</option>
+                                                                    </select>
+                                                                    <input type="text" name="attr_mastery_name">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-mastery">
+                                                            <button type="roll" name="roll_mastery" value="&{template:traits} {{charname=@{character_name}}} {{name=@{mastery_type}}} {{desc=@{mastery_name}}}">
+                                                                <span name="attr_mastery_type"></span>
+                                                                <span name="attr_mastery_name"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-tab-right">
+                            <div class="sheet-container-well sheet-well-character">
+                                <div class="sheet-box sheet-attribute sheet-attribute-APP">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_appearance" value="&{template:simple} {{rname=Appearance}} {{r1=[[@{appearance}d6[Appearance]]]}} {{charname=@{character_name}}}">Appearance</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_appearance" title="@{appearance}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-attribute sheet-attribute-PWR">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_power" value="&{template:simple} {{rname=Power}} {{r1=[[@{power}d6[Power]]]}} {{charname=@{character_name}}}">Power</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_power" title="@{power}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-attribute sheet-attribute-AGI">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_agility" value="&{template:simple} {{rname=Agility}} {{r1=[[@{agility}d6[Agility]]]}} {{charname=@{character_name}}}">Agility</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_agility" title="@{agility}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-attribute sheet-attribute-VIT">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_vitality" value="&{template:simple} {{rname=Vitality}} {{r1=[[@{vitality}d6[Vitality]]]}} {{charname=@{character_name}}}">Vitality</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_vitality" title="@{vitality}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-attribute sheet-attribute-CULT">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_cult" value="&{template:simple} {{rname=Cultivation}} {{r1=[[@{cult}d6[Cultivation]]]}} {{charname=@{character_name}}}">Cultivation</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_cult" title="@{cult}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-attribute sheet-attribute-QiCON">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_qicontrol" value="&{template:simple} {{rname=Qi Control}} {{r1=[[@{qicontrol}d6[Qi Control]]]}} {{charname=@{character_name}}}">Qi Control</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_qicontrol" title="@{qicontrol}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-box sheet-attribute sheet-attribute-MTL">
+                                    <div class="sheet-box-header">
+                                        <button type="roll" name="roll_mental" value="&{template:simple} {{rname=Mental Strength}} {{r1=[[@{mental}d6[Mental Strength]]]}} {{charname=@{character_name}}}">Mental Strength</button>
+                                    </div>
+                                    <div class="sheet-box-body">
+                                        <input type="text" name="attr_mental" title="@{mental}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-container-image">
+                                    <img name="attr_character_avatar">
+                                </div>
+                            </div>
+                            <div class="sheet-container-well sheet-well-condition">
+                                <div class="sheet-box sheet-poison">
+                                    <div class="sheet-box-header">Pill-Poisoning</div>
+                                    <div class="sheet-box-body">
+                                        <span name="attr_poison_max" class="sheet-calculated sheet-hidden">400</span>
+                                        <input type="text" name="attr_poison" title="@{poison}" value="0">
+                                    </div>
+                                </div>
+                                <div class="sheet-container-panel sheet-levels">
+                                    <div class="sheet-panel-header">Poison Levels</div>
+                                    <div class="sheet-panel-body">
+                                        <ul>
+                                            <li>
+                                                <label class="sheet-checkbox">
+                                                    <input type="checkbox" name="attr_poison_state_100" value="1" title="@{poison_state_100}">
+                                                    <span title="@{poison_state_100}"><strong>100:</strong> Affliction</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="sheet-checkbox">
+                                                    <input type="checkbox" name="attr_poison_state_200" value="1" title="@{poison_state_200}">
+                                                    <span title="@{poison_state_200}"><strong>200:</strong> Minor Failure</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="sheet-checkbox">
+                                                    <input type="checkbox" name="attr_poison_state_300" value="1" title="@{poison_state_300}">
+                                                    <span title="@{poison_state_300}"><strong>300:</strong> Major Failure</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="sheet-checkbox">
+                                                    <input type="checkbox" name="attr_poison_state_400" value="1" title="@{poison_state_400}">
+                                                    <span title="@{poison_state_400}"><strong>400:</strong> Death</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="sheet-container-panel sheet-injury">
+                                    <div class="sheet-panel-header">Wounds & Injuries</div>
+                                    <div class="sheet-panel-body">
+                                        <fieldset class="repeating_injury">
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Wound / Injury</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <input type="text" name="attr_wound_description">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-container-well sheet-well-features">
+                                <div class="sheet-container-panel sheet-features">
+                                    <div class="sheet-panel-header">Combat Features</div>
+                                    <div class="sheet-panel-body">
+                                        <fieldset class="repeating_combatfeature">
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Edit Feature</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <span>Feature Name</span>
+                                                                <input type="text" name="attr_feature_name">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <span>Feature Source</span>
+                                                            <select name="attr_feature_source">
+                                                                <option value="Ancestral">Ancestral</option>
+                                                                <option value="Path">Path</option>
+                                                                <option value="Background">Background</option>
+                                                                <option value="Item">Item</option>
+                                                                <option value="Other">Other</option>
+                                                            </select>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <span>Feature Description</span>
+                                                                <textarea name="attr_feature_desc"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-feature">
+                                                        <button type="roll" name="roll_feature" value="&{template:traits} {{charname=@{character_name}}} {{name=@{feature_name}}} {{source=@{feature_source}}} {{desc=@{feature_desc}}}">
+                                                            <div class="sheet-item-header">
+                                                                <span class="sheet-feature_name" name="attr_feature_name"></span>
+                                                            </div>
+                                                            <div class="sheet-item-subheader">
+                                                                <span class="sheet-feature_source" name="attr_feature_source"></span>
+                                                                <span class="sheet-feature_desc" name="attr_feature_desc"></span>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-features">
+                    <input type="radio" name="attr_tab" value="features">
+                    <span class="sheet-tab-label">Features</span>
+                    <div class="sheet-tab-content">
+                        <div class="sheet-container-well sheet-well-details">
+                            <div class="sheet-container-panel sheet-details">
+                                <div class="sheet-panel-header">Character Details</div>
+                                <div class="sheet-panel-body">
+                                    <div class="sheet-detail">
+                                        <label>Age</label>
+                                        <input type="text" name="attr_age" title="@{age}">
+                                    </div>
+                                    <div class="sheet-detail">
+                                        <label>Height</label>
+                                        <input type="text" name="attr_height" title="@{height}">
+                                    </div>
+                                    <div class="sheet-detail">
+                                        <label>Weight</label>
+                                        <input type="text" name="attr_weight" title="@{weight}">
+                                    </div>
+                                    <div class="sheet-detail">
+                                        <label>Gender</label>
+                                        <input type="text" name="attr_gender" title="@{gender}">
+                                    </div>
+                                    <div class="sheet-detail">
+                                        <label>Moral Alignment</label>
+                                        <input type="text" name="attr_moral" title="@{moral}">
+                                    </div>
+                                    <div class="sheet-detail">
+                                        <label>Fear</label>
+                                        <input type="text" name="attr_fear" title="@{fear}">
+                                    </div>
+                                    <div class="sheet-detail sheet-detail-text">
+                                        <label>Key Features</label>
+                                        <textarea name="attr_appearance_detail" title="@{appearance_detail}"></textarea>
+                                    </div>
+                                    <div class="sheet-detail sheet-detail-text">
+                                        <label>Habits</label>
+                                        <textarea name="attr_habit" title="@{habit}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-box sheet-gimmick">
+                                <div class="sheet-box-header">Gimmick</div>
+                                <div class="sheet-box-body">
+                                    <textarea name="attr_gimmick" title="@{gimmick}"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-box sheet-values">
+                                <div class="sheet-box-header">Values</div>
+                                <div class="sheet-box-body">
+                                    <textarea name="attr_value" title="@{value}"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-box sheet-conflict">
+                                <div class="sheet-box-header">Conflict</div>
+                                <div class="sheet-box-body">
+                                    <textarea name="attr_conflict" title="@{conflict}"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-box sheet-want">
+                                <div class="sheet-box-header">Want</div>
+                                <div class="sheet-box-body">
+                                    <textarea name="attr_want" title="@{want}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-well-memories">
+                            <div class="sheet-container-panel sheet-memories">
+                                <div class="sheet-panel-header">Memories</div>
+                                <div class="sheet-panel-body">
+                                    <fieldset class="repeating_memories">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Memory</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_memory_name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <textarea name="attr_memory_description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-memory">
+                                                    <span name="attr_memory_name"></span>
+                                                    <span name="attr_memory_description"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-well-features">
+                            <div class="sheet-container-panel sheet-features">
+                                <div class="sheet-panel-header">Features & Traits</div>
+                                <div class="sheet-panel-body">
+                                    <fieldset class="repeating_feature">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Feature</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Source:</label>
+                                                            <select name="attr_source">
+                                                                <option selected="selected">Ancestral</option>
+                                                                <option>Path</option>
+                                                                <option>Feat</option>
+                                                                <option>Background</option>
+                                                                <option>Other</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Source Type:</label>
+                                                            <input type="text" name="attr_source_type">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Description:</label>
+                                                            <textarea name="attr_description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-feature">
+                                                    <button type="roll" name="roll_feat" value="&{template:traits} {{charname=@{character_name}}} {{name=@{name}}} {{source=@{source}: @{source_type}}} {{desc=@{description}}}">
+                                                        <div class="sheet-feature-name">
+                                                            <span name="attr_name"></span>
+                                                        </div>
+                                                        <div class="sheet-feature-details">
+                                                            <span class="sheet-feature-source">
+                                                                <span name="attr_source"></span>
+                                                                <span name="attr_source_type"></span>
+                                                            </span>
+                                                            <span name="attr_description"></span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-notes">
+                    <input type="radio" name="attr_tab" value="notes">
+                    <span class="sheet-tab-label">Notes</span>
+                    <div class="sheet-tab-content">
+                        <div class="sheet-container-well sheet-well-notes">
+                            <div class="sheet-container-panel sheet-notes-one">
+                                <div class="sheet-panel-header">
+                                    <input type="text" name="attr_note_1" placeholder="Backstory">
+                                </div>
+                                <div class="sheet-panel-body">
+                                    <textarea name="attr_one_notes"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-notes-two">
+                                <div class="sheet-panel-header">
+                                    <input type="text" name="attr_note_2" placeholder="Organisations">
+                                </div>
+                                <div class="sheet-panel-body">
+                                    <textarea name="attr_two_notes"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-notes-three">
+                                <div class="sheet-panel-header">
+                                    <input type="text" name="attr_note_3" placeholder="Allies">
+                                </div>
+                                <div class="sheet-panel-body">
+                                    <textarea name="attr_three_notes"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-notes-four">
+                                <div class="sheet-panel-header">
+                                    <input type="text" name="attr_note_4" placeholder="Enemies">
+                                </div>
+                                <div class="sheet-panel-body">
+                                    <textarea name="attr_four_notes"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-notes-five">
+                                <div class="sheet-panel-header">
+                                    <input type="text" name="attr_note_5" placeholder="Treasure">
+                                </div>
+                                <div class="sheet-panel-body">
+                                    <textarea name="attr_five_notes"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-notes-six">
+                                <div class="sheet-panel-header">
+                                    <input type="text" name="attr_note_6" placeholder="Extra">
+                                </div>
+                                <div class="sheet-panel-body">
+                                    <textarea name="attr_six_notes"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-inventory">
+                    <input type="radio" name="attr_tab" value="inventory">
+                    <span class="sheet-tab-label">Inventory</span>
+                    <div class="sheet-tab-content">
+                        <div class="sheet-container-well sheet-well-inventory">
+                            <div class="sheet-container-panel sheet-inventory">
+                                <div class="sheet-panel-header">Inventory & Holdings</div>
+                                <div class="sheet-panel-body">
+                                    <fieldset class="repeating_inventory">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form sheet-form-item">
+                                                    <div class="sheet-form-header">Edit Item</div>
+                                                    <div class="sheet-form-body">
+                                                        <input type="hidden" name="attr_equipped">
+                                                        <input type="hidden" name="attr_carried">
+                                                        <input type="hidden" name="attr_inventorysubflag">
+                                                        <div class="sheet-item-contents">
+                                                            <div class="sheet-form-group">
+                                                                <label>Name:</label>
+                                                                <input type="text" name="attr_itemname">
+                                                            </div>
+                                                            <input type="checkbox" name="attr_itemcontainer" value="1" class="sheet-toggle" hidden>
+                                                            <div class="sheet-toggle-unchecked">
+                                                                <div class="sheet-form-group">
+                                                                    <label>Quantity</label>
+                                                                    <input type="text" name="attr_itemcount" value="1">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Weight:</label>
+                                                                    <input type="text" name="attr_itemweight">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_itemweightfixed" value="1">
+                                                                        <span>Fixed (Ignore quantity)</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Size:</label>
+                                                                    <input type="text" name="attr_itemsize" value="1">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_itemslotsfixed" value="1">
+                                                                        <span>Fixed (Ignore quantity)</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group sheet-item-columns-2">
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Notches:</label>
+                                                                        <input type="text" name="attr_itemnotches" value="0">
+                                                                    </div>
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Quality:</label>
+                                                                        <select name="attr_itemquality">
+                                                                            <option value="" selected="selected"></option>
+                                                                            <option value="Pristine">Pristine</option>
+                                                                            <option value="Excellent">Excellent</option>
+                                                                            <option value="Good">Good</option>
+                                                                            <option value="Okay">Okay</option>
+                                                                            <option value="Fair">Fair</option>
+                                                                            <option value="Poor">Poor</option>
+                                                                            <option value="Damaged">Damaged</option>
+                                                                            <option value="Scarred">Scarred</option>
+                                                                            <option value="Broken">Broken</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Properties:</label>
+                                                                    <input type="text" name="attr_itemproperties">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Modifiers:</label>
+                                                                    <input type="text" name="attr_itemmodifiers">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Description:</label>
+                                                                    <textarea name="attr_itemcontent"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sheet-toggle-checked">
+                                                                <div class="sheet-item-columns-2">
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Type:</label>
+                                                                        <select name="attr_itemcontainer_type">
+                                                                            <option value="Pouch" selected="selected">Pouch</option>
+                                                                            <option value="Satchel" selected="selected">Satchel</option>
+                                                                            <option value="Bag" selected="selected">Bag</option>
+                                                                            <option value="Backpack" selected="selected">Backpack</option>
+                                                                            <option value="Rucksack" selected="selected">Rucksack</option>
+                                                                            <option value="Small Spatial bag" selected="selected">Small Spatial Bag</option>
+                                                                            <option value="Medium Spatial bag" selected="selected">Medium Spatial Bag</option>
+                                                                            <option value="Large Spatial bag" selected="selected">Large Spatial Bag</option>
+                                                                            <option value="Spatial Ring" selected="selected">Spatial Ring</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Max. Capacity (Slots):</label>
+                                                                        <input type="text" name="attr_itemcontainer_slots" value="3">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Inventory Slots Modifier:</label>
+                                                                    <input type="text" name="attr_itemcontainer_slots_modifier">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sheet-item-options">
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_equipped" value="1" checked="checked">
+                                                                    <span>Equipped</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_carried" value="1" checked="checked">
+                                                                    <span>Carried</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_itemcontainer" value="1">
+                                                                    <span>Container</span>
+                                                                </label>
+                                                            </div>
+                                                            <input type="checkbox" name="attr_itemcontainer" value="1" class="sheet-toggle" hidden>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <input type="checkbox" name="attr_itemcontainer" value="1" class="sheet-toggle" hidden>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-character-item">
+                                                        <div class="sheet-container-header">
+                                                            <span>Item Name</span>
+                                                            <span>Quality</span>
+                                                            <span>Quantity</span>
+                                                            <span>Weight</span>
+                                                            <span>Slots</span>
+                                                        </div>
+                                                        <div class="sheet-container-content">
+                                                            <span class="sheet-character-item-name">
+                                                                <input type="hidden" name="attr_equipped" value="1" class="sheet-field-toggle">
+                                                                <span class="sheet-character-item-equipped"><strong>E</strong></span>
+                                                                <input type="hidden" name="attr_carried" value="1" class="sheet-field-toggle">
+                                                                <span class="sheet-character-item-carried"><strong>C</strong></span>
+                                                                <span name="attr_itemname"></span>
+                                                            </span>
+                                                            <span class="sheet-character-item-quality">
+                                                                <input type="text" name="attr_itemquality">
+                                                            </span>
+                                                            <span class="sheet-character-item-quantity">
+                                                                <input type="text" name="attr_itemcount">
+                                                            </span>
+                                                            <span class="sheet-character-item-weight">
+                                                                <input type="text" name="attr_itemweight">
+                                                            </span>
+                                                            <span class="sheet-character-item-slots">
+                                                                <input type="text" name="attr_itemsize">
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-container-content">
+                                                        <input type="hidden" name="attr_equipped" value="1" class="sheet-field-toggle">
+                                                        <span class="sheet-item-equipped"><strong>E</strong></span>
+                                                        <input type="hidden" name="attr_carried" value="1" class="sheet-field-toggle">
+                                                        <span class="sheet-item-carried"><strong>C</strong></span>
+                                                        <span name="attr_itemname"></span>
+                                                        <span class="sheet-inventory-container-slots">
+                                                            (
+                                                            <span name="attr_itemcontainer_type"></span>
+                                                            <input type="hidden" name="attr_itemcontainer_slots" class="sheet-field-toggle">
+                                                            <span>· capacity <span name="attr_itemcontainer_slots"></span></span>
+                                                            <input type="hidden" name="attr_itemcontainer_slots_modifier" class="sheet-field-toggle">
+                                                            <span>· extra slots <span name="attr_itemcontainer_slots_modifier"></span></span>
+                                                            )
+                                                        </span>
+                                                    </div>
+                                                    <div class="sheet-container-labels">
+                                                        <span>Item Name</span>
+                                                        <span>Quality</span>
+                                                        <span>Quantity</span>
+                                                        <span>Weight</span>
+                                                        <span>Slots</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-well-purse">
+                            <div class="sheet-container-bar sheet-bar-cc">
+                                <div class="sheet-bar-header">
+                                    <input type="text" name="attr_cc_title" title="@{cc_title}" value="COPPER">
+                                </div>
+                                <div class="sheet-bar-body">
+                                    <input type="text" name="attr_cc" title="@{cc}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-bar-sc">
+                                <div class="sheet-bar-header">
+                                    <input type="text" name="attr_sc_title" title="@{sc_title}" value="SILVER">
+                                </div>
+                                <div class="sheet-bar-body">
+                                    <input type="text" name="attr_sc" title="@{sc}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-bar-gc">
+                                <div class="sheet-bar-header">
+                                    <input type="text" name="attr_gc_title" title="@{gc_title}" value="GOLD">
+                                </div>
+                                <div class="sheet-bar-body">
+                                    <input type="text" name="attr_gc" title="@{gc}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-bar-ctrb">
+                                <div class="sheet-bar-header">
+                                    <input type="text" name="attr_ctrb_title" title="@{ctrb_title}" value="CONTRIBUTION">
+                                </div>
+                                <div class="sheet-bar-body">
+                                    <input type="text" name="attr_ctrb" title="@{ctrb}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-bar-ss">
+                                <div class="sheet-bar-header">
+                                    <input type="text" name="attr_ss_title" title="@{ss_title}" value="SPIRIT STONES">
+                                </div>
+                                <div class="sheet-bar-body">
+                                    <input type="text" name="attr_ss" title="@{ss}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-bar-other">
+                                <div class="sheet-bar-header">
+                                    <input type="text" name="attr_other_title" title="@{other_title}" value="JADE STAR">
+                                </div>
+                                <div class="sheet-bar-body">
+                                    <input type="text" name="attr_other" title="@{Other}">
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="sheet-container-well sheet-well-general">
+                            <div class="sheet-container-panel sheet-general">
+                                <div class="sheet-panel-header">General Item Notes</div>
+                                <div class="sheet-panel-body">
+                                    <fieldset class="repeating_general">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Item</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_otheritem-name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <textarea name="attr_otheritem-description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-otheritem">
+                                                    <span name="attr_otheritem-name"></span><span name="attr_otheritem-description"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-main-footer">
+            <p>Venator Ignis's Sapphire Ravine Character Sheet and Tracker</p>
+        </div>
+    </div>
+
+    <div class="sheet-variable_fields">
+        <div class="Header-Details">
+            <input type="hidden" name="attr_level" value="1">
+            <input type="hidden" name="attr_major" value="Qi gathering">
+            <input type="hidden" name="attr_minor" value="Early">
+            <input type="hidden" name="attr_dao" value="None">
+            <input type="hidden" name="attr_path" value="None">
+            <input type="hidden" name="attr_background" value="None">
+            <input type="hidden" name="attr_ancestry" value="None">
+            <input type="hidden" name="attr_species" value="None">
+            <input type="hidden" name="attr_reputation" value="Nameless">
+            <input type="hidden" name="attr_cult_progress" value="0">
+        </div>
+        <div class="Main-Stats">
+            <input type="hidden" name="attr_power" value="0">
+            <input type="hidden" name="attr_agility" value="0">
+            <input type="hidden" name="attr_vitality" value="0">
+            <input type="hidden" name="attr_cult_speed" value="0">
+            <input type="hidden" name="attr_qi_con" value="0">
+            <input type="hidden" name="attr_mental" value="0">
+            <input type="hidden" name="attr_mtl_fortitude" value="0">
+            <input type="hidden" name="attr_sanity" value="0">
+        </div>
+        <div class="Attack-Mastery">
+            <input type="hidden" name="attr_mastery_acc" value="0">
+            <input type="hidden" name="attr_mastery_eff" value="0">
+            <input type="hidden" name="attr_mastery_dmg" value="0">
+        </div>
+        <div class="Skills">
+            <input type="hidden" name="attr_acrobatics" value="0">
+            <input type="hidden" name="attr_athletics" value="0">
+            <input type="hidden" name="attr_charm" value="0">
+            <input type="hidden" name="attr_deceit" value="0">
+            <input type="hidden" name="attr_disguise" value="0">
+            <input type="hidden" name="attr_fine_arts" value="0">
+            <input type="hidden" name="attr_first_aid" value="0">
+            <input type="hidden" name="attr_forgery" value="0">
+            <input type="hidden" name="attr_history" value="0">
+            <input type="hidden" name="attr_intuition" value="0">
+            <input type="hidden" name="attr_intimidate" value="0">
+            <input type="hidden" name="attr_medicine" value="0">
+            <input type="hidden" name="attr_navigation" value="0">
+            <input type="hidden" name="attr_perception" value="0">
+            <input type="hidden" name="attr_performance" value="0">
+            <input type="hidden" name="attr_persuade" value="0">
+            <input type="hidden" name="attr_sleight_of_hand" value="0">
+            <input type="hidden" name="attr_stealth" value="0">
+            <input type="hidden" name="attr_survival" value="0">
+        </div>
+        <div class="Combat-Stats">
+            <input type="hidden" name="attr_eva" value="0">
+            <input type="hidden" name="attr_dur" value="0">
+            <input type="hidden" name="attr_init" value="0">
+            <input type="hidden" name="attr_movement" value="0">
+        </div>
+        <div class="Character-Health">
+            <input type="hidden" name="attr_hp_die" value="0">
+            <input type="hidden" name="attr_hp_bonus" value="0">
+            <input type="hidden" name="attr_max_hp" value="0">
+            <input type="hidden" name="attr_current_hp" value="0">
+            <input type="hidden" name="attr_soul_hp" value="0">
+            <input type="hidden" name="attr_body_refiner_bonus" value="0">
+            <input type="hidden" name="attr_body_refiner_regen" value="0">
+        </div>
+        <div class="Stat Milestones">
+            <input type="hidden" name="attr_milestone_pwr_50" value="0">
+            <input type="hidden" name="attr_milestone_pwr_100" value="0">
+            <input type="hidden" name="attr_milestone_agi_50" value="0">
+            <input type="hidden" name="attr_milestone_agi_70" value="0">
+            <input type="hidden" name="attr_milestone_vit_50" value="0">
+            <input type="hidden" name="attr_milestone_cult_10" value="0">
+            <input type="hidden" name="attr_milestone_qicon_40" value="0">
+            <input type="hidden" name="attr_milestone_qicon_50" value="0">
+            <input type="hidden" name="attr_milestone_qicon_100" value="0">
+            <input type="hidden" name="attr_milestone_mtl_5" value="0">
+            <input type="hidden" name="attr_milestone_mtl_35" value="0">
+            <input type="hidden" name="attr_milestone_mtl_150" value="0">
+        </div>
+        <div class="Pill-Poisoning">
+            <input type="hidden" name="attr_pill_poison_100" value="">
+            <input type="hidden" name="attr_pill_poison_200" value="">
+            <input type="hidden" name="attr_pill_poison_300" value="">
+            <input type="hidden" name="attr_pill_poison_400" value="">
+        </div>
+        <div class="Additional-Unsorted">
+            <input type="hidden" name="attr_profession" value="None">
+        </div>
+    </div>
+    <div class="sheet-rolltemplates">
+        <rolltemplate class="sheet-rolltemplate-atk">
+            <div class="container">
+                <div class="result">
+                    <div class="solo"><span>{{r1}}</span></div>
+                </div>
+                {{#range}}
+                    <div class="sublabel"><span>{{range}}</span></div>
+                {{/range}}
+                <div class="label">
+                    {{#r1}}
+                        <span>
+                            {{rname}}
+                        </span>
+                    {{/r1}}
+                </div>
+                {{#charname}}
+                    <div class="charname"><span>{{charname}}</span></div>
+                {{/charname}}
+            </div>
+            {{#desc}}
+                <div class="desc info"><span><span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span></span></div>
+            {{/desc}}
+        </rolltemplate>
+
+        <rolltemplate class="sheet-rolltemplate-dmg">
+            <div class="container damagetemplate">
+                <div class="result">
+                    {{#dmg1flag}}
+                        {{^dmg2flag}}
+                            <div class="solo">
+                                <span class="damage">{{dmg1}}</span>
+                                <span class="sublabel">{{dmg1type}}</span>
+                            </div>
+                        {{/dmg2flag}}
+                    {{/dmg1flag}}
+                    {{#dmg2flag}}
+                        {{^dmg1flag}}
+                            <div class="solo">
+                                <span class="damage">{{dmg2}}</span>
+                                <span class="sublabel">{{dmg2type}}</span>
+                            </div>
+                        {{/dmg1flag}}
+                    {{/dmg2flag}}
+                    {{#dmg1flag}}
+                        {{#dmg2flag}}
+                            <div class="adv">
+                                <span class="damage">{{dmg1}}</span>
+                                <span class="sublabel">{{dmg1type}}</span>
+                            </div>
+                            <div class="advspacer"></div>
+                            <div class="adv">
+                                <span class="damage">{{dmg2}}</span>
+                                <span class="sublabel">{{dmg2type}}</span>
+                            </div>
+                        {{/dmg2flag}}
+                    {{/dmg1flag}}
+                </div>
+                {{^attack}}
+                    <div class="label">
+                        <span>{{rname}}</span>
+                    </div>
+                    {{#charname}}
+                        <div class="charname">
+                            <span>{{charname}}</span>
+                        </div>
+                    {{/charname}}
+                {{/attack}}
+            </div>
+        </rolltemplate>
+
+
+        <rolltemplate class="sheet-rolltemplate-desc">
+            <div class="desc info">
+                <span>
+                    <span class="middle">{{desc}}</span>
+                </span>
+            </div>
+        </rolltemplate>
+
+        <rolltemplate class="sheet-rolltemplate-simple">
+            <div class="container">
+                <div class="result">
+                    <div class="solo">
+                        <span>{{r1}}</span>
+                    </div>
+                </div>
+                <div class="label">
+                    <span>{{rname}}</span>
+                </div>
+                <div class="charname">
+                    <span>{{charname}}</span>
+                </div>
+            </div>
+        </rolltemplate>
+
+        <rolltemplate class="sheet-rolltemplate-traits">
+            <div class="row header">
+                <span>{{name}}</span>
+            </div>
+            <div class="row subheader">
+                <span class="italics">{{source}}</span>
+            </div>
+            <div class="row">
+                <span class="desc">{{desc}}</span>
+            </div>
+        </rolltemplate>
+    </div>
+
+    <script type="text/worker">
+        const statToSkillsMap = {
+            power: ["athletics", "intimidate", "survival"],
+            agility: ["acrobatics","athletics","arts","forgery","navigation","performance","sleight","stealth",],
+            qicontrol: ["history", "medicine",],
+            mental: ["disguise","arts","aid","forgery","history","intuition","investigation","medicine","navigation","perception","survival",],
+            appearance: ["charm","deceit","disguise","intimidate","performance","persuade",],
+        };
+        
+        ["power","agility","vitality","cult","qicontrol","mental","appearance",].forEach((attr) => {
+            self.on(`change:${attr}`, function () {
+            const skills = statToSkillsMap[attr];
+            if (skills) {
+                updateSkills(skills);
+            }
+            if (
+                attr === "power" ||
+                attr === "agility" ||
+                attr === "vitality" ||
+                attr === "qicontrol" ||
+                attr === "mental"
+            ) {
+                updateAttacks("all");
+                updateTool(`${attr}`);
+            }
+            });
+        });
+        
+        var updateSkills = function (skillsArray) {
+            var attrsToGet = ["power","agility","vitality","cult","qicontrol","mental","appearance",];
+            var update = {};
+        
+            getAttrs(attrsToGet, function (values) {
+            skillsArray.forEach(function (skill) {
+                console.log("UPDATING SKILL: " + skill);
+                var attrMod = 0;
+        
+                switch (skill) {
+                case "acrobatics":attrMod = parseInt(values.agility);
+                    break;
+                case "athletics":attrMod = Math.round((parseInt(values.power) + parseInt(values.agility)) / 2);
+                    break;
+                case "charm":attrMod = Math.round((parseInt(values.appearance) + parseInt(values.mental)));
+                    break;
+                case "deceit":attrMod = Math.round((parseInt(values.appearance) + parseInt(values.mental)));
+                    break;
+                case "disguise":attrMod = Math.round((parseInt(values.appearance) + parseInt(values.mental)));
+                    break;
+                case "arts":attrMod = Math.round((parseInt(values.agility) + parseInt(values.mental)) / 2);
+                    break;
+                case "aid":attrMod = Math.round((parseInt(values.vitality) + parseInt(values.mental)) / 2);
+                    break;
+                case "forgery":attrMod = Math.round((parseInt(values.agility) + parseInt(values.mental)) / 2);
+                    break;
+                case "history":attrMod = Math.round((parseInt(values.qicontrol) + parseInt(values.mental)) / 2);
+                    break;
+                case "intuition":attrMod = parseInt(values.mental);
+                    break;
+                case "intimidate":attrMod = Math.round((parseInt(values.power) + parseInt(values.appearance)));
+                    break;
+                case "investigation":attrMod = parseInt(values.mental);
+                    break;
+                case "medicine":attrMod = Math.round((parseInt(values.qicontrol) + parseInt(values.mental)) / 2);
+                    break;
+                case "navigation":attrMod = Math.round((parseInt(values.agility) + parseInt(values.mental)) / 2);
+                    break;
+                case "perception":attrMod = parseInt(values.mental);
+                    break;
+                case "performance":attrMod = Math.round((parseInt(values.agility) + parseInt(values.appearance)));
+                    break;
+                case "persuade":attrMod = Math.round((parseInt(values.mental) + parseInt(values.appearance)));
+                    break;
+                case "sleight":attrMod = parseInt(values.agility);
+                    break;
+                case "stealth":attrMod = parseInt(values.agility);
+                    break;
+                case "survival":attrMod = Math.round((parseInt(values.power) + parseInt(values.mental)) / 2);
+                    break;
+                // Add more skills here with their respective calculations
+                }
+        
+                var total = attrMod;
+                update[skill] = total;
+            });
+        
+            setAttrs(update, { silent: true }, function () {
+                callbacks.forEach(function (callback) {
+                callback();
+                });
+            });
+            });
+        };
+        
+        on("change:poison", function (eventinfo) {
+            let poison = toInt(eventinfo.newValue);
+            let update = {};
+            if (poison < 100) {
+            update["poison_state_100"] = 0;
+            update["poison_state_200"] = 0;
+            update["poison_state_300"] = 0;
+            update["poison_state_400"] = 0;
+            }
+            if (poison >= 100) {
+            update["poison_state_100"] = 1;
+            update["poison_state_200"] = 0;
+            update["poison_state_300"] = 0;
+            update["poison_state_400"] = 0;
+            }
+            if (poison >= 200) {
+            update["poison_state_100"] = 1;
+            update["poison_state_200"] = 1;
+            update["poison_state_300"] = 0;
+            update["poison_state_400"] = 0;
+            }
+            if (poison >= 300) {
+            update["poison_state_100"] = 1;
+            update["poison_state_200"] = 1;
+            update["poison_state_300"] = 1;
+            update["poison_state_400"] = 0;
+            }
+            if (poison >= 400) {
+            update["poison_state_100"] = 1;
+            update["poison_state_200"] = 1;
+            update["poison_state_300"] = 1;
+            update["poison_state_400"] = 1;
+            }
+            setAttrs(update);
+        });
+        
+        let toInt = function (value) {
+            return value && !isNaN(value) ? parseInt(value) : 0;
+        };
+        
+        var updateAttacks = function(update_id){
+            console.log("Updating Attacks: " + update_id);
+            if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
+                do_update_attack([update_id]);
+            } else if (["power","agility","vitality","qicontrol","mental","all"].indexOf(update_id) > -1){
+                getSectionIDs("repeating_attack", function(attackarray){
+                    console.log("Attacks: " + attackarray);
+                    do_update_attack(attackarray);
+                });
+            };
+        };
+        
+        var do_update_attack = function(attack_array){
+            var attack_attr = ["power","agility","vitality","qicontrol","mental"];
+            _.each(attack_array, function(attack_id){
+                attack_attr.push("repeating_attack_" + attack_id + "_atkflag");
+                attack_attr.push("repeating_attack_" + attack_id + "_atkname");
+                attack_attr.push("repeating_attack_" + attack_id + "_atkattr_base");
+                attack_attr.push("repeating_attack_" + attack_id + "_atkmod");
+                attack_attr.push("repeating_attack_" + attack_id + "_atkrange");
+                attack_attr.push("repeating_attack_" + attack_id + "_atk_desc");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmgflag");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmgbase");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmgattr");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmgmod");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmgtype");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmg2flag");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmg2base");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmg2attr");
+                attack_attr.push("repeating_attack_" + attack_id + "_dmg2type");
+            });
+            getAttrs(attack_attr, function(v){
+                _.each(attack_array, function(attack_id){
+                    var callbacks = [];
+                    var update = {};
+                    var dmg = "";
+                    var dmgattr = "";
+                    var dmg2 = "";
+                    var dmg2attr = "";
+                    var hbonus = "";
+                    var hdmg1 = "";
+                    var hdmg2 = "";
+                    var atkattr_abrev = "";
+                    var dmgattr_abrev = "";
+                    var dmg2attr_abrev = "";
+        
+                    if (!v["repeating_attack_" + attack_id + "_atkattr_base"] || v["repeating_attack_" + attack_id + "_atkattr_base"] === "0") {
+                        atkattr_base = 0
+                    } else {
+                        atkattr_base = parseInt(v[v["repeating_attack_" + attack_id + "_atkattr_base"].substring(2, v["repeating_attack_" + attack_id + "_atkattr_base"].length - 1)], 10);
+                        atkattr_abrev = v["repeating_attack_" + attack_id + "_atkattr_base"].substring(2, 5).toUpperCase();
+                    };
+        
+                    if (!v["repeating_attack_" + attack_id + "_dmgattr"] || v["repeating_attack_" + attack_id + "_dmgattr"] === "0") {
+                        dmgattr = 0;
+                    } else {
+                        dmgattr = parseInt(v[v["repeating_attack_" + attack_id + "_dmgattr"].substring(2, v["repeating_attack_" + attack_id + "_dmgattr"].length - 1)], 10);
+                        dmgattr_abrev = v["repeating_attack_" + attack_id + "_dmgattr"].substring(2, 5).toUpperCase();
+                    };
+        
+                    if (!v["repeating_attack_" + attack_id + "_dmg2attr"] || v["repeating_attack_" + attack_id + "_dmg2attr"] === "0") {
+                        dmg2attr = 0;
+                    } else {
+                        dmg2attr = parseInt(v[v["repeating_attack_" + attack_id + "_dmg2attr"].substring(2, v["repeating_attack_" + attack_id + "_dmg2attr"].length - 1)], 10);
+                        dmg2attr_abrev = v["repeating_attack_" + attack_id + "_dmg2attr"].substring(2, 5).toUpperCase();
+                    };
+        
+                    var dmgbase = v["repeating_attack_" + attack_id + "_dmgbase"] && v["repeating_attack_" + attack_id + "_dmgbase"] != "" ? v["repeating_attack_" + attack_id + "_dmgbase"] : 0;
+                    var dmg2base = v["repeating_attack_" + attack_id + "_dmg2base"] && v["repeating_attack_" + attack_id + "_dmg2base"] != "" ? v["repeating_attack_" + attack_id + "_dmg2base"] : 0;
+                    var dmgmod = v["repeating_attack_" + attack_id + "_dmgmod"] && isNaN(parseInt(v["repeating_attack_" + attack_id + "_dmgmod"], 10)) === false ? parseInt(v["repeating_attack_" + attack_id + "_dmgmod"], 10) : 0;
+                    var dmg2mod = v["repeating_attack_" + attack_id + "_dmg2mod"] && isNaN(parseInt(v["repeating_attack_" + attack_id + "_dmg2mod"], 10)) === false ? parseInt(v["repeating_attack_" + attack_id + "_dmg2mod"], 10) : 0;
+                    var dmgtype = v["repeating_attack_" + attack_id + "_dmgtype"] ? v["repeating_attack_" + attack_id + "_dmgtype"] + " " : "";
+                    var dmg2type = v["repeating_attack_" + attack_id + "_dmg2type"] ? v["repeating_attack_" + attack_id + "_dmg2type"] + " " : "";
+                    var atkmod = v["repeating_attack_" + attack_id + "_atkmod"] && v["repeating_attack_" + attack_id + "_atkmod"] != "" ? parseInt(v["repeating_attack_" + attack_id + "_atkmod"], 10) : 0;
+        
+                    if (v["repeating_attack_" + attack_id + "_atkflag"] && v["repeating_attack_" + attack_id + "_atkflag"] != 0) {
+                        bonus = atkattr_base + atkmod;
+                    } else {
+                        bonus = "-";
+                    }
+                    if (v["repeating_attack_" + attack_id + "_dmgflag"] && v["repeating_attack_" + attack_id + "_dmgflag"] != 0) {
+                        if (dmgbase === 0 && (dmgattr + dmgmod === 0)) {
+                            dmg = 0;
+                        }
+                        if (dmgbase != 0) {
+                            dmg = dmgbase;
+                        }
+                        if (dmgbase != 0 && (dmgattr + dmgmod != 0)) {
+                            dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
+                        }
+                        if (dmgattr + dmgmod != 0) {
+                            dmg = dmg + (dmgattr + dmgmod);
+                        }
+                        dmg = dmg + " " + dmgtype;
+                    } else {
+                        dmg = "";
+                    };
+                    if (v["repeating_attack_" + attack_id + "_dmg2flag"] && v["repeating_attack_" + attack_id + "_dmg2flag"] != 0) {
+                        if (dmg2base === 0 && (dmg2attr + dmg2mod === 0)) {
+                            dmg2 = 0;
+                        }
+                        if (dmg2base != 0) {
+                            dmg2 = dmg2base;
+                        }
+                        if (dmg2base != 0 && (dmg2attr + dmg2mod != 0)) {
+                            dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
+                        }
+                        if (dmg2attr + dmg2mod != 0) {
+                            dmg2 = dmg2 + (dmg2attr + dmg2mod);
+                        }
+                        dmg2 = dmg2 + " " + dmg2type;
+                    } else {
+                        dmg2 = "";
+                    };
+        
+                    dmgspacer = v["repeating_attack_" + attack_id + "_dmgflag"] && v["repeating_attack_" + attack_id + "_dmgflag"] != 0 && v["repeating_attack_" + attack_id + "_dmg2flag"] && v["repeating_attack_" + attack_id + "_dmg2flag"] != 0 ? "+ " : "";
+        
+                    if (v["repeating_attack_" + attack_id + "_atkflag"] && v["repeating_attack_" + attack_id + "_atkflag"] != 0) {
+                        if (atkmod != 0) {
+                            hbonus = " + " + atkmod + " [MOD]" + hbonus
+                        };
+                        if (atkattr_base != 0) {
+                            hbonus = atkattr_base + " [" + atkattr_abrev + "]" + hbonus
+                        };
+                    } else {
+                        hbonus = "";
+                    }
+                    if (v["repeating_attack_" + attack_id + "_dmgflag"] && v["repeating_attack_" + attack_id + "_dmgflag"] != 0) {
+                        if (dmgmod != 0) {
+                            hdmg1 = " + " + dmgmod + " [MOD]" + hdmg1
+                        };
+                        if (dmgattr != 0) {
+                            hdmg1 = " + " + dmgattr + " [" + dmgattr_abrev + "]" + hdmg1
+                        };
+                        hdmg1 = dmgbase + hdmg1;
+                    } else {
+                        hdmg1 = "0";
+                    }
+                    if (v["repeating_attack_" + attack_id + "_dmg2flag"] && v["repeating_attack_" + attack_id + "_dmg2flag"] != 0) {
+                        if (dmg2mod != 0) {
+                            hdmg2 = " + " + dmg2mod + " [MOD]" + hdmg2
+                        };
+                        if (dmg2attr != 0) {
+                            hdmg2 = " + " + dmg2attr + " [" + dmg2attr_abrev + "]" + hdmg2
+                        };
+                        hdmg2 = dmg2base + hdmg2;
+                    } else {
+                        hdmg2 = "0";
+                    }
+        
+                    if (v["repeating_attack_" + attack_id + "_atkflag"] && v["repeating_attack_" + attack_id + "_atkflag"] != 0) {
+                        pickbase = "pick";
+                        rollbase = "&{template:atk} {{rname=[@{atkname}](~repeating_attack_attack_damage)}} {{r1=[["+hbonus+"]]}} {{r2=[["+hbonus+"]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{charname=@{character_name}}}";
+                    } else if (v["repeating_attack_" + attack_id + "_dmgflag"] && v["repeating_attack_" + attack_id + "_dmgflag"] != 0) {
+                        pickbase = "dmg";
+                        rollbase = "&{template:dmg} {{rname=@{atkname}}} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + "]]}} {{dmg2type=" + dmg2type + "}} {{desc=@{atk_desc}}} {{charname=@{character_name}}}"
+                    } else {
+                        pickbase = "empty";
+                        rollbase = "&{template:dmg} {{rname=@{atkname}}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{charname=@{character_name}}}"
+                    }
+        
+                    update["repeating_attack_" + attack_id + "_rollbase_damage"] = "&{template:dmg} {{rname=@{atkname}}} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + "]]}} {{dmg2type=" + dmg2type + "}} {{desc=@{atk_desc}}} {{charname=@{character_name}}}";
+                    update["repeating_attack_" + attack_id + "_atkbonus"] = bonus;
+                    update["repeating_attack_" + attack_id + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
+                    update["repeating_attack_" + attack_id + "_rollbase"] = rollbase;
+        
+                    setAttrs(update, {
+                        silent: true
+                    }, function() {
+                        callbacks.forEach(function(callback) {
+                            callback();
+                        })
+                    });
+        
+                });
+            });
+        };
+        
+        on("change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:atkrange", function() {
+            updateAttacks("all");
+        });
+        
+        on("change:repeating_tool:toolname change:repeating_tool:toolattr_base change:repeating_tool:tool_mod", function(eventinfo) {
+            if (eventinfo.sourceType === "sheetworker") {
+                return;
+            }
+            var tool_id = eventinfo.sourceAttribute.substring(15, 35);
+            updateTool(tool_id);
+        });
+        
+        var updateTool = function(tool_id) {
+            if (tool_id.substring(0, 1) === "-" && tool_id.length === 20) {
+                do_update_tool([tool_id]);
+            } else if (tool_id === "all") {
+                getSectionIDs("repeating_tool", function(idarray) {
+                    do_update_tool(idarray);
+                });
+            } else {
+                getSectionIDs("repeating_tool", function(idarray) {
+                    var tool_attribs = [];
+                    _.each(idarray, function(id) {
+                        tool_attribs.push("repeating_tool_" + id + "_toolattr_base");
+                    });
+                    getAttrs(tool_attribs, function(v) {
+                        var attr_tool_ids = [];
+                        _.each(idarray, function(id) {
+                            if (v["repeating_tool_" + id + "_toolattr_base"] && v["repeating_tool_" + id + "_toolattr_base"].indexOf(tool_id) > -1) {
+                                attr_tool_ids.push(id);
+                            }
+                        });
+                        if (attr_tool_ids.length > 0) {
+                            do_update_tool(attr_tool_ids);
+                        }
+                    });
+                });
+            };
+        };
+        
+        var do_update_tool = function(tool_array) {
+            var tool_attribs = ["power","agility","vitality","qicontrol","mental"];
+            var update = {};
+            _.each(tool_array, function(tool_id) {
+                tool_attribs.push("repeating_tool_" + tool_id + "_tool_mod");
+                tool_attribs.push("repeating_tool_" + tool_id + "_toolattr_base");
+            });
+        
+            getAttrs(tool_attribs, function(v) {
+                _.each(tool_array, function(tool_id) {
+                    console.log("UPDATING TOOL: " + tool_id);
+                    var query = false;
+                    if (v["repeating_tool_" + tool_id + "_toolattr_base"] && v["repeating_tool_" + tool_id + "_toolattr_base"].substring(0, 2) === "?{") {
+                        update["repeating_tool_" + tool_id + "_toolattr"] = "QUERY";
+                        var mod = "?{Attribute?|Power,@{power}|Agility,@{agility}|Vitality,@{vitality}|Qi Control,@{qicontrol}|Mental Strength,@{mental}}";
+                        if (v["repeating_tool_" + tool_id + "_tool_mod"]) {
+                            mod = mod + "+" + v["repeating_tool_" + tool_id + "_tool_mod"];
+                        }
+                        query = true;
+                    } else {
+                        var attr = v["repeating_tool_" + tool_id + "_toolattr_base"].substring(0, v["repeating_tool_" + tool_id + "_toolattr_base"].length - 1).substr(2);
+                        var attr_mod = v[attr] ? parseInt(v[attr], 10) : 0;
+                        var tool_mod = v["repeating_tool_" + tool_id + "_tool_mod"] && !isNaN(parseInt(v["repeating_tool_" + tool_id + "_tool_mod"], 10)) ? parseInt(v["repeating_tool_" + tool_id + "_tool_mod"], 10) : 0;
+                        var mod = attr_mod + tool_mod;
+                        update["repeating_tool_" + tool_id + "_toolattr"] = attr.toUpperCase();
+                        if (!v["repeating_tool_" + tool_id + "_tool_mod"]) {
+                            update["repeating_tool_" + tool_id + "_tool_mod"] = 0;
+                        }
+                    };
+                    update["repeating_tool_" + tool_id + "_toolbonus"] = mod;
+                    update["repeating_tool_" + tool_id + "_toolbonus_display"] = mod;
+                });
+        
+                setAttrs(update, {
+                    silent: true
+                });
+            });
+        };
+    </script>
+</div>
